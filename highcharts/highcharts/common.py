@@ -454,6 +454,13 @@ class DrillUpButton(CommonObject):
     "theme": NotImplemented #ThemeObject
     },
 
+class Filter(CommonObject):
+    ALLOWED_OPTIONS = {
+        "operator": basestring,
+        "property": basestring,
+        "value": [float, int],
+    }
+
 class Labels(CommonObject):   
     ALLOWED_OPTIONS = {
     "align": basestring,
@@ -469,6 +476,7 @@ class Labels(CommonObject):
     "defer": bool,
     "distance": int,
     "enabled": bool,
+    "filter": (Filter, dict),
     "format": basestring,
     "formatter": (Formatter, JSfunction, basestring),
     "inside": bool,
